@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>还有用</li>
+			<li>没用了</li>
+		</ul>
+		<script>
+			//在一个页面中不需要他时，就可以删除
+			//要删除元素必须通过他的父元素删除
+			// 父元素.removeChild(要删的元素)
+			
+			//获取元素
+			const ul = document.querySelector('ul')
+			//删除元素
+			ul.removeChild(ul.children[1])
+			
+			//删除节点和隐藏节点有区别，隐藏节点还是存在的，但是删除节点就是直接从html中删除节点
+			
+		</script>
+	</body>
+</html>

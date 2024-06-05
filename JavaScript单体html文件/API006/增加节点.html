@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>我是老大</li>
+		</ul>
+		<script>
+			//很多时候，我需要在页面增加元素
+			//比如发布按钮等等
+			
+			//步骤
+			//创建一个新的节点,然后把创建新的节点放到指定的元素内部
+			//document.createElement('标签名')
+			//const div = document.createElement('div')
+			//console.log(div);
+			
+			//追加节点
+			//创建之后想要在界面看到，还得插入到某个元素当中
+			// 默认插入到父元素的最后一个子元素
+			//父元素.appendChild(要插入的元素)
+			//document.body.appendChild(div)
+			
+			// Test
+			//获取元素
+			const ul = document.querySelector('ul')
+			//创建元素
+			const li = document.createElement('li')
+			//给元素里面添加值
+			li.innerHTML = '哈哈哈'
+
+			//追加节点
+			//ul.appendChild(li)//默认插入到父元素最后一个子元素
+			ul.insertBefore(li,ul.children[0])
+			//这个就可以自己定义插入到什么位置insertBefore(插入的元素，插入元素的位置)
+		</script>
+	</body>
+</html>

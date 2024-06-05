@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<script>
+			//克隆节点
+			//克隆一个已经有的元素节点
+			//元素.cloneNode(布尔值)
+			//后面布尔值如果是true就会克隆子孙后代
+			//如果是false只会克隆儿子
+			//默认是false
+			
+			//获取元素
+			const ul = document.querySelector('ul')
+			//克隆节点
+			const lione = ul.children[0].cloneNode(true)
+			//这一步就是把ul里的第0个索引的值克隆给lione
+			//追加
+			ul.appendChild(lione)
+		</script>
+	</body>
+</html>
