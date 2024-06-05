@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+
+            width: 450px;
+            height: 40px;
+            color: red;
+
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>随机点名</h2>
+    <div class="box">
+        <span>幸运同学是：</span>
+        <div class="qs">这里显示学号</div>
+    </div>
+    <div class="btns">
+        <button class="start">开始</button>
+        <button class="end">结束</button>
+    </div>
+
+    <script>
+        // 数据数组
+        const arr = [  
+    "001同学", "002同学", "003同学", "004同学", "005同学", "006同学", "007同学", "008同学", "009同学",  
+    "010同学", "011同学", "012同学", "013同学", "014同学", "015同学", "016同学", "017同学", "018同学", "019同学",  
+    "020同学", "021同学", "022同学", "023同学", "024同学", "025同学", "026同学", "027同学", "028同学", "029同学",  
+    "030同学", "031同学", "032同学", "033同学", "034同学", "035同学", "036同学", "037同学", "038同学", "039同学",  
+    "040同学", "041同学", "042同学", "043同学", "044同学", "045同学", "046同学", "047同学", "048同学", "049同学",  
+    "050同学", "051同学", "052同学"  
+]
+		//定时器全局变量
+		let n = 0
+		
+		//随机号要全局变量，到后面才能在外面把抽到的删掉
+		let random = 0
+		//获取开始按钮元素
+		const start = document.querySelector('.start')
+		
+		//获取结束按钮
+		const end = document.querySelector('.end')
+		
+		//获取输出的元素
+		const qs = document.querySelector('.qs')
+		
+		//点击添加事件
+		start.addEventListener('click',function(){
+			n = setInterval(function(){
+				random = parseInt(Math.random() * arr.length)
+				console.log(arr[random])
+				qs.innerHTML = arr[random]
+			},50)
+		})
+		
+		//关闭按钮模块
+		end.addEventListener('click',function(){
+			clearInterval(n)//这里只要获取到了上面的值，就会停止
+			arr.splice(random,n)
+		})
+    </script>
+</body>
+
+</html>

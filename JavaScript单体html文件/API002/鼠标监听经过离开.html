@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			//获取元素
+			const div = document.querySelector('div')
+			//鼠标经过
+			div.addEventListener('mouseenter',function(){
+				console.log('来了')
+			})
+			//鼠标离开
+			div.addEventListener('mouseleave',function(){
+				console.log('走了');
+			})
+		</script>
+	</body>
+</html>

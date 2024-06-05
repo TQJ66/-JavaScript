@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text"/>
+		<script>
+			//获取元素
+			const input = document.querySelector('input')
+			//监听事件
+			//获得焦点触发
+			input.addEventListener('focus',function(){
+				console.log('有焦点');
+			})
+			//失去焦点触发
+			input.addEventListener('blur',function(){
+				console.log('无焦点');
+			})
+		</script>
+	</body>
+</html>

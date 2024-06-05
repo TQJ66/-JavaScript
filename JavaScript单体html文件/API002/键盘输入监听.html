@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="hahah1"/>
+		<script>
+			//获取元素
+			const input = document.querySelector('input')
+			//键盘输入监听
+			input.addEventListener('input',function(){
+				//console.log('输入了内容');
+				//小技巧：如果你想的到用户在文本框里输入了什么内容，可以按照下面这样写
+				console.log(input.value)
+			})
+		</script>
+	</body>
+</html>

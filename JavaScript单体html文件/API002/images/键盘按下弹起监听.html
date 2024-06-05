@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text"/>
+		<script>
+			//键盘焦点是只要按了键盘就会触发
+			//获取元素
+			const input = document.querySelector('input')
+			//键盘按下监听
+			input.addEventListener('keydown',function(){
+				console.log('键盘按下');
+			})
+			input.addEventListener('keyup',function(){
+				console.log('键盘弹起');
+			})
+			
+			
+		</script>
+	</body>
+</html>
