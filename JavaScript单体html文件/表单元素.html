@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <input type="text" value="哈哈哈"/> -->
+		<!-- <p>哈</p> -->
+		<!-- <input type="checkbox" name="" id="" checked/>//后面加了checked -->
+		<!-- //在input里，无论checked后面有没有值，只要出现了checked，那就是被选择状态 -->
+		<input type="checkbox" name="" id="" /><!-- 没加checked -->
+		<button>点击</button>
+		<button disabled>点击</button>
+		<!-- disabled在按钮里面就是禁用的意思 -->
+		<script>
+			//获取input元素
+			// const text = document.querySelector('input')
+			// //获取p段落元素
+			// const p = document.querySelector('p')
+			// //获取用户输入的值，一般是value
+			// console.log(text.value);//哈哈哈
+			// console.log(p.innerHTML);//哈
+			// console.log(text.innerHTML);//什么也得不到，他只适用于普通的值
+			
+			
+			//表单属性中添加就有效果,移除就没有效果,一律使用布尔值表示
+			//如果为true 代表添加了该属性 如果是false 代表移除了该属性
+			//获取元素
+			const ipt = document.querySelector('input')
+			console.log(ipt.checked);
+			//如果需要让复选框默认选中，那就直接添加属性就行了
+			//ipt.checked = 'asdfkjlhas',这种不提倡
+			ipt.checked = true
+			//在input里，无论checked后面有没有值，只要出现了checked，那就是被选择状态
+			// 如果想让button按钮禁用,可以这样
+			//先获取
+			const button = document.querySelector('button')
+			button.disabled = true//true就是真，false就是假
+		</script>
+		
+		
+	</body>
+</html>

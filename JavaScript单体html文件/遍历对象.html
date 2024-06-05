@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let goods = {
+				name: '小米14Ultra',
+				num: 02580258,
+				weight: '0.32kg',
+				address: '中国大陆'
+			}
+			let arr = ['tqj','qjt','jtq']
+			//遍历数组(只会遍历下标,字符串型,容易出问题，主要用途就是遍历对象)
+			for(let k in arr){
+				console.log(k);
+				console.log(arr[k])
+			}
+			console.log('-------')
+			//遍历对象
+			for(let key in goods){
+				console.log(key)//这样只会遍历对象的属性名，但是不会遍历属性值
+				console.log(goods[key]);//和查询对象一样
+			}
+		</script>
+	</body>
+</html>

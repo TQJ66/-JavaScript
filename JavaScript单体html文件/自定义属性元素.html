@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 一个标签里面可以定义多个自定义属性,自定义属性要data-开头 -->
+		<div data-id="1" data-sm="随便写">1</div>
+		<div data-id="2">2</div>
+		<div data-id="3">3</div>
+		<div data-id="4">4</div>
+		<div data-id="5">5</div>
+		<script>
+			const one = document.querySelector('div')//默认选取第一个div
+			console.log(one.dataset);//这个dataset的意思就是他会把所有自定义的属性集合起来
+			console.log(one.dataset.id);//这就是获取自定义属性为id的属性值
+			console.log(one.dataset.sm);
+		</script>
+	</body>
+</html>

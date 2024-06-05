@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.box {
+				width: 200px;
+				height: 200px;
+				color: #333;
+			}
+			.active {
+				color: red;
+				background-color: pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">文字</div>
+		<script>
+			//通过classList添加
+			//1.获取元素
+			const box = document.querySelector('.box')
+			//修改样式
+			box.classList.add('active')
+			//这个和className不同的就是不会覆盖原有的，相当于是给以前的追加一个
+			
+			//删除类 remove（）
+			box.classList.remove('box')
+			
+			//切换类 toggle（）
+			box.classList.toggle('box')
+			// 这句话的意思就是,判断box 有没这个,没有就加上,有就删掉
+		</script>
+	</body>
+</html>

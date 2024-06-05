@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function sayHi(){
+				console.log('Hi~~~')
+			}
+			sayHi()
+			
+			function getSum(x = 0, y = 0){
+				document.write(x+y)
+			}
+			getSum()//输出0
+			getSum(1,2)//输出3
+			
+			function getArrSum(x = 0, y = 0){
+				//return 
+				//x+y return不能换行
+				return x+y
+				document.write('123')//return后面的代码不会执行	
+			}
+			
+			function getSum(x = 0, y = 0){
+				document.write(x+y)
+			}
+			getArrSum(1)//NaN
+			
+			function getSum(x = 0, y = 0){
+				document.write(x+y)
+			}
+			getArrSum(1,2,3)//3不参与运算，所以结果是3
+		</script>
+	</body>
+</html>

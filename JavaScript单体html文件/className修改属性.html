@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				margin: 50px auto;
+			}
+			.nav {
+				color: blue;
+			}
+			.box {
+				width: 300px;
+				height: 300px;
+				background-color: hotpink;
+				margin: 50px auto;
+				border: 3px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav">123</div>
+		<script>
+			//1.获取元素
+			const div = document.querySelector('div')
+			//用类名修改属性样式
+			//div.className = 'box'
+			//注意，如果className的话，他是会把原本的类名覆盖，如果原先有个类名就会覆盖掉
+			//如果要保留，可以像下面这样
+			div.className = 'nav box'
+		</script>
+	</body>
+</html>

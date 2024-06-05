@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			let sum = 2000;
+			let i = 1
+			while(i){
+				let decition = +prompt(`请选择你的操作：
+										1.存钱
+										2.取钱
+										3.查看余额
+										4.退出`)
+				switch(decition){
+					case 1:
+						let store = +prompt('请输入您要存入的金额：')
+						sum += store
+						alert(`存入成功！您的余额为${sum}`)
+					continue
+					case 2:
+						let out = +prompt(`您的余额:${sum},输入您要取的金额`)
+						if((sum - out) >= 0){
+							sum -= out
+							alert(`取出成功！您的余额还剩${sum}`)
+						}else{
+							alert(`余额不足`)
+						}
+					continue
+					case 3:
+						alert(`您的余额还剩${sum}元`)
+					continue
+					case 4:
+						i--;
+						alert(`已退出`)
+						break
+					default :
+						alert(`非法数据`)
+					continue
+				}
+			}
+		</script>
+	</body>
+</html>

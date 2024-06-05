@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//开启定时器
+			// setInterval(函数,间隔时间)间隔单位是毫秒
+			// setInterval(function(){
+			// 	document.write('病毒')
+			// },1)
+			function fu(){
+				console.log('重复执行');
+			}
+			//函数名不要加小括号
+			
+			let n = setInterval(fu,500)//每个定时器都有独一无二的返回值
+			
+			//关闭定时器
+			clearInterval(n)//用这个clearInterval取到定时器的返回值就可以关闭
+			
+		</script>
+	</body>
+</html>

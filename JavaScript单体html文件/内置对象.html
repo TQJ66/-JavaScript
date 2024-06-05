@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//内置对象就是js内部提供的对象，包含各种属性和方法给开发者使用
+			//比如：document.write(),console.log()这些就是属于内置对象
+			//Math
+			//属性
+			//获取圆周率
+			console.log(Math.PI);//就是3.14159265
+			//方法
+			//Math.ceil()向上取整
+			console.log(Math.ceil(1.01))//2
+			console.log(Math.ceil(1.99))//2
+			//Math.floor()向下去整
+			console.log(Math.floor(1.8));//1
+			console.log(Math.floor(1.01));//1
+			//Math.round()四舍五入
+			console.log(Math.round(1.5));//2
+			console.log(Math.round(1.49))//1
+			//ParseInt()取整函数，和floor的区别就是，他可以对字符串进行处理
+			console.log(parseInt('12.3'));//12
+			console.log(parseInt('12.9'));//12
+			console.log(parseInt('12px'));//12
+			//Math.max()求最大值
+			//Math.min()求最小值
+			console.log(Math.max(1,2,3,4,5,6,7,8,9))//9
+			console.log(Math.min(1,2,3,4,5,6,7,8,9))//1
+			//Math.random()随机数函数，默认返回[0,1)的随机数，只能取到0到1但不包括1的范围
+			console.log(Math.random());
+			//0-10之间的随机整数
+			console.log(Math.floor(Math.random()* (10+1)));
+			//先把随机数*10，这样范围就是[0,10)的随机数，后面再+1，那就是[0,11)的随机数
+			//但是外面还嵌套了一个Math.floor，他的意思就是向下取整数，就能得到0~10的整数了
+			//生成5~10的随机数
+			console.log(Math.floor(Math.random()* (5+1)) +5)
+			// 生成N-M的随机数
+			// Math.floor(Math.random()*(M-N+1))+N
+		</script>
+	</body>
+</html>

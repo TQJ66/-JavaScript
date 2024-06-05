@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">123</div>
+		<div class="box">abc</div>
+		<p id="nav">哈哈哈</p>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+		<script>
+			//1.根据css选择器来获取DOM元素
+			// 语法:
+			// document.querySelector('css选择器')
+			//他只会获取第一个div里面的
+			const box = document.querySelector('.box')
+			const nav = document.querySelector('#nav')
+			//获取第一个li
+			const li = document.querySelector('ul li:first-child')
+			//选择所有的li
+			const lis = document.querySelectorAll('ul li')
+			console.dir(lis)
+			lis[0].style.color = 'red'
+			//因为querySelectorAll获取到的对象数据都是伪数组，需要遍历一遍得到每个元素
+			console.dir(li)
+			console.dir(box)
+			box.style.color = 'red'
+			//把class为box的标签属性颜色改成红色
+			console.dir(nav);
+		</script>
+	</body>
+</html>

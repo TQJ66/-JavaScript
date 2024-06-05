@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// function fu(x,y){
+			// 	console.log(x+y)
+			// }
+			// fu(1,2)//如果不穿参，那结果就是NaN
+			// fu()
+			//就得用下面的办法
+			// function fu(x = 0,y = 0){
+			// 	console.log(x+y)
+			// }
+			// fu(1,2)
+			// fu()
+			
+			//逻辑中断
+			// function fu(x,y){
+				//y = x || 0
+				//x = y || 0
+			// 	console.log(x+y)
+			// }
+			//fu()
+			//从上可得fu没有值传过去,所以x和y里面的值是undefined
+			//而undefined在逻辑判断里是为假
+			//所以 y = 假 || 假，y里面就是0
+			//X = 0 || 0，y在上面已经变成0了
+			//所以最后式子x+y的值就是0
+			//--------
+			//如果是fu(1,2)，那就是正常的
+			
+			console.log(11&&22)//都是真，返回最后一个值，22
+			//和c语言不同的就是他会返回值，而c语言全都把他转换成false和true来看
+			console.log(11||22)//都是真，返回最后一真值，22
+		</script>
+	</body>
+</html>

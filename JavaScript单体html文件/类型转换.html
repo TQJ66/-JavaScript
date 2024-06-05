@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let age = prompt('输入你的年龄')//输入18
+			let money = prompt('输入你的工资')//输入3000
+			document.write(age + money)//输出183000
+			//用表单等等传过来的数据都是默认字符串类型，如果正常相加就会直接拼起来
+			//此时我们就需要把一种数据类型转换成我们需要的数据类型
+			document.write('-------------')
+			//隐式转换
+			//运算符被执行时，系统内部自动将数据类型进行转换，这种转换称为隐式转换
+			//+ 号两边只要有一个是字符串，都会把另外一个转成字符串
+			//但是除了+以外的算术运算符 比如 - * /等都会把数据转成数字类型
+			document.write(1+1)//2
+			document.write('tqj'+66)//tqj66
+			document.write(2-2)//0
+			document.write(2 - '2')//0
+			document.write(+ '123')//数字型123
+			//任何数据和字符串相加结果都会变成字符串
+			document.write('--------------')
+			//显示转换
+			//格式：首字母大写类型名（变量名）
+			//例如：
+			let str = '123'
+			document.write(Number(str)+1)
+			//NaN也是Number型的数据，只不过代表非数字
+			
+			//parseInt 把数值转换成整数，不四舍五入
+			document.write(parseInt('12.5'))//12
+			document.write(parseInt('12px'))//12
+			document.write(parseInt('12.99'))//12
+			document.write(parseInt('12哈哈哈'))//12 12前面不能有除数字以外的东西
+			document.write('-------------')
+			//parseFloat 把数值转换成Float类型数据
+			document.write(parseFloat('12.5'))//12.5
+			document.write(parseFloat('12px'))//12
+			document.write(parseFloat('12.99'))//12.99
+			document.write(parseFloat('12哈哈哈'))//12  12前面不能有除数字以外的东西
+		</script>
+	</body>
+</html>

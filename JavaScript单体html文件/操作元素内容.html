@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">哈哈哈</div>
+		<script>
+			//innerText 属性
+			//就是用来修改的
+			//只显示纯文本，不会解析标签
+			const box = document.querySelector('.box')
+			box.style.color = 'blue'
+			console.dir(box);
+			//对象.innerText 获取元素对象属性
+			console.dir(box.innerText)
+			box.innerText = '<h1>我改变了</h1>'//修改对象里的属性，修改文字内容
+			
+			//innerHtml 和innerText唯一的区别就是解析标签
+			box.innerHTML = `<h1>我改变了</h1>`
+		</script>
+	</body>
+</html>

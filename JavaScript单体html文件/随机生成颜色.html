@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function color(flag = true){
+				if(flag){
+					let arr = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+					let str = '#'
+					for (let i = 0; i < 6; i++){
+						str += arr[Math.floor(Math.random() * arr.length)]
+					}
+					return str
+				}else {
+					
+					let r = Math.floor(Math.random()*(255+1))
+					let g = Math.floor(Math.random()*(255+1))
+					let b = Math.floor(Math.random()*(255+1))
+					return `rgb(${r},${g},${b})`
+				}
+				
+				
+			}
+			console.log( color(false))
+			console.log( color(true))
+			
+		</script>
+	</body>
+</html>

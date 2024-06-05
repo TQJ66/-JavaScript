@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			let arr = [5,4,3,2,1]
+			let temp = 0
+			// for (let i = 0; i < arr.length - 1; i++) {
+			// 	//五个数据，5从0索引开始往后比，只需要比四次，因为最后一次就是和自己比
+			// 	for (let j = 0; j < arr.length - i - 1 ; j++){
+			// 		//假如现在arr[4,3,2,1,5],那么现在就是开始要用4来比了，
+			// 		//因为现在冒泡会把最大的数字放到最后面，那他肯定是不要和最后一个来比较了
+			// 		//i就是当前冒泡的次数，所以j < arr.k=lenght -1 -i，
+			// 		if ( arr[j] > arr[j+1]){
+			// 			//看他下一个是不是比他大
+			// 			temp = arr[j]
+			// 			arr[j] = arr[j+1]
+			// 			arr[j+1] = temp
+			// 			//如果后面的数比他小，就替换
+			// 		}
+					
+			// 	}
+			// }
+			// 上面的冒泡可以用下面这个来代替
+			//arr.sort()升序排列
+			// arr.sort(function (a,b){
+			// 	return a-b
+			// })
+			//arr.sort()降序排列
+			// arr.sort(function (a,b){
+			// 	return b-a
+			// })
+			console.log(arr)
+		</script>
+	</body>
+</html>
