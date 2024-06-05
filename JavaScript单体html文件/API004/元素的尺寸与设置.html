@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			div{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				margin: 100px;
+			}
+			p {
+				width: 100px;
+				height: 100px;
+				background-color: purple;
+				margin: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p></p>
+		</div>
+		<script>
+			//在以往，页面滚动多少距离都是我们自己计算的
+			//有没有一种方法可以让他获取到某个位置
+			//通过 offsetWidth和offsetHeight获得宽高，并且包含宽高，内边距和边框
+			//但是获取的是可视宽高，如果盒子是隐藏的话，获取到的结果就是0
+			//并且他们是只读的
+			const div = document.querySelector('div')
+			const p = document.querySelector('p')
+			console.log(div.offsetHeight)//div的高
+			console.log(div.offsetWidth)//div的宽
+			console.log(div.offsetLeft)//左页边到div的距离 
+			console.log('------------------')
+			console.log(p.offsetLeft);
+		</script>
+	</body>
+</html>

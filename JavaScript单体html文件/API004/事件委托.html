@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<p>6</p>
+		</ul>
+		<script>
+			//事件委托
+			// 比如要给上面每个li添加点击事件
+			//优点 可以减少注册次数，提高程序性能
+			//原理就是利用事件冒泡的特点
+			//给父元素注册事件，当我们触发子元素，就会冒泡到父元素上
+			const ul = document.querySelector('ul')
+			ul.addEventListener('click',function(e){
+				console.log(e)
+				//这里面有个参数叫target,能反应出我是按了什么键触发的
+				// 我们就可以的到 e.target就是我们点击的那个按键
+				console.log(e.target)
+				//所以就能实现给父级元素注册事件，点击子元素就能改变子元素
+				if(e.target.tagName == 'LI'){
+					// target里面又有个参数叫tagName,他就等于当前点击的大写按键,比如我点击的是p,但是他的值就等于P
+					//只有点击是li才会添加效果
+					e.target.style.color = 'red'
+				}
+					
+				
+				
+				
+			})
+		</script>
+	</body>
+</html>

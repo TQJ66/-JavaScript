@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.father {
+				width: 500px;
+				height: 500px;
+				background-color: pink;
+			}
+			.son {
+				width: 200px;
+				height: 200px;
+				background-color: hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		
+		<script>
+			// 把事情限制在元素内，就需要阻止冒泡
+			
+			// 事件对象.stopPropagetion()
+			//可以阻止事件流动传播，在冒泡阶段和捕获阶段都有用 
+			
+			const fa = document.querySelector('.father')
+			 const son = document.querySelector('.son')
+			document.addEventListener('click',function(){
+				alert('我是爷爷')
+			})
+			
+			fa.addEventListener('click',function(){
+				alert('我是爸爸')
+			})
+			
+			son.addEventListener('click',function (e){
+				alert('我是儿子')
+				
+				//阻止流动
+				e.stopPropagation()
+				//阻止冒泡之后就不会往后走了，就只会显示我是儿子
+			})
+			
+			
+		</script>
+		
+	</body>
+</html>

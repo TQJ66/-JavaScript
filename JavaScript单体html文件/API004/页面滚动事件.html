@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body {
+				height: 50000px;
+				padding-top: 100px;
+			}
+			div {
+				overflow: scroll;
+				margin: 100px;
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		滚动滚动滚动滚动滚动
+		</div>
+		
+		<script>
+			//滚动条在滚动的时候持续触发的事件
+			//scroll 事件名
+			//页面滚动事件
+			window.addEventListener('scroll',function(){
+				//页面滚动比较特殊
+			 	// 需要用这个来表示document.documentElement.scrollTop
+				let n// = document.documentElement.scrollTop---
+				// document.documentElement.scrollTop得到的是数字型,不带单位
+				
+				//此外，document.documentElement.scrollTop还是可读写的
+				//既可以把他当中变量赋值给别人，别人也可以赋值给他  
+				//利用这个特性就可以做到一点开网页，就已经在半截
+				//document.documentElement.scrollTop = 2000
+				
+				// 所以有时候可以做那种窗口往下拉到一定程度就会弹出一些东西
+				if(n >= 200){
+					div.style.display = 'block'
+				}else{
+					div.style.display = 'none'
+				}
+				
+				
+			 })
+			 
+			 //div滚动事件
+			const div = document.querySelector('div')
+			div.addEventListener('scroll',function(){
+				//上面这个是创建滚动事件
+				console.log(div.scrollTop)
+				//滚动的像素
+			})
+		</script>
+		
+	</body>
+</html>

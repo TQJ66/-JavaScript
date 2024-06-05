@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<form action="https://www.baidu.com/?tn=15007414_20_dg" target="_blank">
+			<input type="submit" value="点击搜索"/>
+			<!-- 这样写的话，只要点击按钮就会跳转到百度 -->
+			<!-- 但是在生活中有时候注册的时候需要把手机号啥的都填满才能注册，否则没用 -->
+			<!-- 这时候就得阻止默认行为 -->
+		</form>
+		<a href="https://www.baidu.com/?tn=15007414_20_dg" target="_blank">百度</a>
+		
+		<script>
+			// 阻止默认行为
+			// e.preventDefault()
+			const form = document.querySelector('form')
+			//获取元素
+			form.addEventListener('submit',function(e){
+				//上面这一句是创建点击事件
+				e.preventDefault('submit')
+				//这句话就是阻止默认行为的语句了，有了他，点击按钮就不会跳转到新的网页
+				//用submit就是因为它是一个提交按钮
+			})
+			//阻止超链接跳转
+			const a = document.querySelector('a')
+			a.addEventListener('click',function(e){
+				e.preventDefault('click')
+				//用click是因为它是点击跳转
+			})
+		</script>
+	</body>
+</html>
