@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tab栏切换</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .tab {
+      width: 590px;
+      height: 340px;
+      margin: 20px;
+      border: 1px solid #e4e4e4;
+    }
+
+    .tab-nav {
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .tab-nav h3 {
+      font-size: 24px;
+      font-weight: normal;
+      margin-left: 20px;
+    }
+
+    .tab-nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .tab-nav ul li {
+      margin: 0 20px;
+      font-size: 14px;
+    }
+
+    .tab-nav ul li a {
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      color: #333;
+    }
+
+    .tab-nav ul li a.active {
+      border-color: #e1251b;
+      color: #e1251b;
+    }
+
+    .tab-content {
+      padding: 0 16px;
+    }
+
+    .tab-content .item {
+      display: none;
+    }
+
+    .tab-content .item.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tab">
+    <div class="tab-nav">
+      <h3>每日特价</h3>
+      <ul>
+        <li><a class="active" href="javascript:;">精选</a></li>
+        <li><a href="javascript:;">美食</a></li>
+        <li><a href="javascript:;">百货</a></li>
+        <li><a href="javascript:;">个护</a></li>
+        <li><a href="javascript:;">预告</a></li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <div class="item active"><img src="./images/tab00.png" alt="" /></div>
+      <div class="item"><img src="./images/tab01.png" alt="" /></div>
+      <div class="item"><img src="./images/tab02.png" alt="" /></div>
+      <div class="item"><img src="./images/tab03.png" alt="" /></div>
+      <div class="item"><img src="./images/tab04.png" alt="" /></div>
+    </div>
+  </div>
+<script>
+	// a 模块制作,就是鼠标经过导航栏页面会自动切换
+	//获取a元素
+	
+	//const as = document.querySelector('.tab-nav a')
+	//这个querySelector只会选取.tab-nav下的第一个a标签
+	const items = document.querySelectorAll('.tab-content .item');
+	const as = document.querySelectorAll('.tab-nav a')
+	// querySelectorAll可以选取.tab-nav里所有的a标签
+	//利用循环来快速给5个导航栏添加鼠标经过效果
+	for (let i = 0; i < as.length; i++) {
+		as[i].addEventListener('mouseenter',function(){
+			//这里先要删除原有的active，然后再对鼠标经过的地方添加active
+			document.querySelector('.tab-nav .active').classList.remove('active')
+			this.classList.add('active')
+			//这里的this就是鼠标经过的as[i]调用的，是他的环境对象
+			// this 关键字并不指向循环中的索引 i，而是指向触发事件的那个元素
+			
+			//导航栏搞好了接下来就是搞图片了
+			// 下面的图片鼠标不用经过切换,所以不能this
+		    //这里先要删除原有的active，然后再对鼠标经过的地方添加active
+			document.querySelector('.tab-content .active').classList.remove('active')
+			items[i].classList.add('active')
+			//这里的i下标不要和for循环的下标搞混了，这里的i是上面鼠标监听的i，也就是你鼠标移动到哪里，哪里就是i
+			
+		})
+	}
+	
+	
+	
+</script>
+</body>
+
+</html>

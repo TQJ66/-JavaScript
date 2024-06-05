@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			.father {
+				width: 500px;
+				height: 500px;
+				background-color: pink;
+			}
+			.son {
+				width: 200px;
+				height: 200px;
+				background-color: hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <ul>
+			<li>第1个孩子</li>
+			<li>第2个孩子</li>
+			<li>第3个孩子</li>
+			<li>第4个孩子</li>
+			<li>第5个孩子</li>
+			<p>我不是你孩子</p>
+	 	</ul> -->
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<script>
+			// 事件流指的就是一个时间完整执行过程中的流程
+			// 比如要从学校找到我
+			// 捕获阶段   湖南  衡阳  雁峰区  目标(我) 从外道理的流程
+			// 冒泡阶段  雁峰区 衡阳 湖南  
+			 
+			 //获取元素
+			 // const ul = document.querySelector('ul')
+			 // ul.addEventListener('click',function(e){
+				 
+			 // })
+			 
+			 const fa = document.querySelector('.father')
+			 const son = document.querySelector('.son')
+			document.addEventListener('click',function(){
+				alert('我是爷爷')
+			},true)
+			
+			fa.addEventListener('click',function(){
+				alert('我是爸爸')
+			},true)
+			
+			son.addEventListener('click',function(){
+				alert('我是儿子')
+			},true)
+			
+			//如果从儿子的区域点击,那么会依次弹出我是爷爷，爸爸，儿子，这就是捕获阶段
+			//如果把三个true去掉，那就是默认冒泡阶段，那么会依次弹出我是儿子，爸爸，爷爷
+		</script>
+	</body>
+</html>

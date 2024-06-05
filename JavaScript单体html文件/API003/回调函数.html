@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			  //如果一个函数a，作为参数传给b时，a就是回调函数
+			  function fn(){
+				  console.log('我是回调');
+			  }
+			  setInterval(fn,1000)
+			  //在这里setInterval多次调用了fn函数，那么fn就是回调函数
+		</script>
+	</body>
+</html>

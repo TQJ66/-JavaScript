@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>点击</button>
+		<script>
+			//每个函数里面都有this 环境对象 
+			//环境对象指的就是函数内部特殊变量this，他代表当前函数运行的所处环境
+			//this指向函数的调用着   谁调用，this就指向谁
+			const btn = document.querySelector('button')
+			btn.addEventListener('click',function(){
+				//谁调用this，谁就是this
+				//console.log(this);
+				//btn调用了this，那么this就指向btn
+				
+				// 以前的点击变色
+				//btn.style.color = 'red'
+				//现在用this
+				this.style.color = 'red'
+			})
+		</script>
+	</body>
+</html> 
