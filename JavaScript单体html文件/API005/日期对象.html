@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<p></p>
+		</div>
+		<script>
+			// 实例化 new
+			//得到当前时间
+			
+			// console.log(date)
+			// console.log(date.getFullYear())
+			// console.log(date.getMonth()+1)//月份要+1，因为他的取值范围是0-11
+			// console.log(date.getDay())//这个取值也是0-6，但是不用+1，因为这个值表示0就等于星期天
+			//自定义时间
+			const day = new Date('2005-07-27')
+			console.log(day)
+			
+			//Test
+			const div = document.querySelector('div')
+			setInterval(function(){
+				const date = new Date()
+				div.innerHTML = date.toLocaleString()
+				//tolocaleString()的作用是转换为了更易于阅读的字符串格式
+			},1000)
+			
+		</script>
+	</body>
+</html>

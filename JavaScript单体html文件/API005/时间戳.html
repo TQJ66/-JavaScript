@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			//时间戳一般用于倒计时效果，时间无法计算
+			//时间戳是唯一的
+			//倒计时的思想： 把将来的时间戳减去现在的时间戳，然后把剩余的时间戳转为年月日时分秒，这就是倒计时
+			
+			//获取时间戳三种写法
+			// gettaime()
+			// const date = new Date()
+			// console.log(date.getTime());
+			
+			// //简写 + new Data()
+			// console.log(+new Date());
+			// console.log(+new Date('2024-05-20 15:13'));
+			
+			//封装函数
+			function getTime(){
+				//Test
+				//现在时间
+				const now = +new Date()
+				//将来时间
+				const last = +new Date('2024-05-20 18:30:00')
+				//求出将来时间减去现在时间，然后再转换成秒，因为时间戳默认是毫秒
+				const cont = (last - now) / 1000
+				console.log(cont);
+				
+				//把这些秒转换成小时，分钟，秒
+				let h = parseInt(cont / 3600)
+				let m = parseInt((cont %3600) / 60)
+				let s = parseInt(cont % 60)
+				
+				//确保小时，分钟，秒都是两位数
+				h = h < 10 ? '0' + h : h
+				m = m < 10 ? '0' + m : m
+				s = s < 10 ? '0' + s : s
+				
+				const div = document.querySelector('div')
+				
+				div.innerHTML = `距离下课还有：${h}时${m}分${s}秒`
+			}
+			setInterval(getTime,1000)
+		</script>
+	</body>
+</html>

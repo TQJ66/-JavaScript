@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="ydyd">
+			<div class="dad">
+				<div class="baby">X</div>
+			</div>
+		</div>
+		
+		<script>
+			//父节点查找
+			// parentNode属性
+			// 返回最近一级的父节点，如果找不到返回为null
+			//子元素.parentNode
+			const baby = document.querySelector('.baby')
+			// console.log(baby)
+			console.log(baby.parentNode)//获取父级
+			console.log(baby.parentNode.parentNode)//在父亲的基础上再向上获取父级，也就是ydyd
+		</script>
+	</body>
+</html>
