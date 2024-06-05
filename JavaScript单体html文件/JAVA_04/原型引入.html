@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//原型对象就是构造函数的时候那些重复的，把他单独拿出来，就是原型对象了
+			
+			function Set(name,age){
+				this.name = name
+				this.age = age
+				this.sing = function(){
+					console.log('哈哈')
+				}
+			}
+			const one = new Set('哈哈哈',18)
+			const two = new Set('嘿嘿嘿',19)
+			//从上面可以看出，sing会被创建两个，但是两个都是一样的，这样就会浪费内存
+			//每个构造函数都有一个prototype属性，这个属性就是指向原型的
+			//所以我们可以把一些重复的属性都放到原型对象里
+			Set.prototype.sing = function(){
+				console.log('哈哈')
+			}
+			//上面这里就是原型对象
+		</script>
+	</body>
+</html>

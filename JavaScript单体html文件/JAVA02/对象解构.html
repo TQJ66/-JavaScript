@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//对象解构
+			// const {name,age} = {name:'哈哈',age:18}
+			// console.log(name)//哈哈
+			// console.log(age)//18
+			
+			//解构数组对象
+			// const pig = [
+			// 	{
+			// 		name:'佩奇',
+			// 		age:6
+			// 	}
+			// ]
+			// const [{name}] = pig
+			// const [{age}] = pig
+			// console.log(name);
+			
+			// // Test
+			// const pig = {
+			// 	name:'佩奇',
+			// 	age:6
+			// }
+			
+			// // const {name,age} = pig
+			// // console.log(name)
+			// // console.log(age)
+			
+			// const {name:uname,age} = pig
+			// console.log(uname)
+			// console.log(age);
+			
+			const pig = {
+				name:'佩奇',
+				family:{
+					mother:'猪妈妈',
+					father:'猪爸爸',
+					borther:'乔治'
+				},
+				age:6
+			}
+			//多级对象解构
+			const { name, family: { mother, father, borther}, age} = pig
+			console.log(name)
+			console.log(age)
+			console.log(mother)
+			console.log(father)
+			console.log(borther)
+			
+			
+		</script>
+	</body>
+</html>

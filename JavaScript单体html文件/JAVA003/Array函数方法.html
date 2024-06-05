@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			// find用于查找数组中满足特定条件的第一个元素，并返回该元素的值。如果没有找到符合条件的元素，则返回undefined
+			// 语法 arr.find(function(item){})
+			// const arr = ['red','blue','green']
+			// const re = arr.find(function(item){
+			// 	return item === 'red'
+			// })
+			// console.log(re);
+			
+			const arr = [
+			  {
+			    "id": 1,
+			    "title": "5G商用自己，三大运用商收入下降",
+			    "count": 58
+			  },
+			  {
+			    "id": 2,
+			    "title": "国际媒体头条速览",
+			    "count": 56
+			  },
+			  {
+			    "id": 3,
+			    "title": "乌克兰和俄罗斯持续冲突",
+			    "count": 1669
+			  },
+			]
+			
+			const re = arr.find(function(item){
+				return item.id === 2
+			})
+			console.log(re) //虽然查找的是属性值，但是返回的是属性值所在的整个数组元素
+			
+			
+			
+			//every 检查数组中所有元素都是否符合条件，全都符合返回ture，否则返回false
+			
+			const number = ['10','20','30']
+			const result = number.every(item => item >= 0)
+			console.log(result)//都满足大于0，就返回ture
+			
+			
+			//伪数组转换真数组
+			//数组名.form()
+		</script>
+	</body>
+</html>

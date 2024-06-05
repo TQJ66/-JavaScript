@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div></div>
+		<script>
+			//字符串转换成数组
+			//split(按照什么符号分隔)
+			// const str1 = 'TQJ,nb'
+			// const strr1 = str1.split(',')//括号里的分隔符就是按照上面字符串的分隔符来的
+			// console.log(strr1);
+			
+			// const str2 = '2020-04-08'
+			// const strr2 = str2.split('-')
+			// console.log(strr2);
+			
+			
+			//字符串截取
+			//substring（起始位置，结束位置-1）
+			// const str = '哈哈哈，很开心'
+			// const strr = str.substring(1,5)//第一个数字代表开始的索引号，如果没有第二个数字则默认取到最后，
+			// //第二个数字代表该索引+1的地方，比如5就代表开，但是他是表示该索引+1，所有他实际是指向‘很’字
+			// console.log(strr);
+			
+			//检查字符串是否以某字开头
+			//字符串.startsWith('判断的字符串'，起始位置)
+			// const str = 'hello'
+			// const str1 = str.startsWith('e',1)
+			// console.log(str1)//返回布尔类型
+			
+			//判断一个字符串是否包含在另一个字符串当中
+			//includes('是否被包含的字符串'，起始位置，默认为0)
+			// const str = 'hello'
+			// const str1 = str.includes('lo')
+			// console.log(str1)//返回布尔类型
+			
+			//Test
+			//const gift = '50g茶叶,清洗球'
+			//先要把字符串都拆分成数组
+			//const str = gift.split(',').map(function(item){
+				//return `<span>【赠品】${item}</span><br>`
+			//}).join('')//变成数之后再遍历数组，再把他转换成字符串
+			//document.querySelector('div').innerHTML = str
+			
+			// 用箭头函数简化
+			//document.querySelector('div').innerHTML = gift.split(',').map(item => `<span>【赠品】${item}</span><br>`).join('')
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//construtor属性
+			function star(){
+			}
+			console.dir(star)
+			//打印 star 函数本身的详细信息，包括函数的属性和方法，里面包含了prototype,prototype里面又包含了constructor
+			console.dir(star.prototype)
+			//它将打印 star 函数的原型对象
+			console.dir(star.prototype.constructor)
+			//star.prototype.constructor 引用了 star 函数的原型对象的 constructor 属性，该属性默认指向创建该原型对象的构造函数
+			//就可以理解为，他是套娃，star里面包含prototype，prototype里面又包含constructor，constructor里面又指向star
+			console.dir( star.prototype.constructor === star)//true 全等
+			
+			
+			
+			
+			
+			//construtor的作用就是如果原型对象重新赋值的话，要让他重新指回这个对象 构造函数
+		</script>
+	</body>
+</html>

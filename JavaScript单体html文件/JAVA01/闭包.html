@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//闭包就是内层函数和外层变量组成，比如在一个函数外层定义了变量，在函数里面使用了这个变量
+			//简单来说就是内层函数使用了外层的变量就是闭包 ，前提是必须要使用
+			
+			//闭包简单的写法
+			// function fu(){
+			// 	let a = 1
+			// 	function fn(){
+			// 		console.log(a)
+			// 	}
+			// }
+			
+			
+			//普通函数常见写法  外部可以访问使用函数内部变量
+			// function fu(){
+			// 	let a = 1
+			// 	function fn(){
+			// 		console.log(a)
+			// 	}	
+			// 	return fn
+			// 	//这里通过返回fn函数就可以得到a的值
+			// }
+			// const fun = fu()
+			// fun()
+			//外层函数使用内部函数变量
+			
+			
+			//Test
+			// 统计一个函数被调用了多少次
+			// let count = 0;
+			// function fu(){
+			// 	count++
+			// 	console.log(`函数被调用了${count}次`);
+			// }
+			// fu()//1
+			// fu()//2
+			
+			//这样也可以做到统计，但是count是全局变量，太容易被修改，所以可以按照下面闭包的形式来写
+			function fu(){
+				let count = 0
+				function fn(){
+				 	count++
+				 	console.log(`函数被调用了${count}次`);
+				 }
+				 return fn
+			}
+			const result = fu()
+			result()//1
+			result()//2
+		</script>
+	</body>
+</html>

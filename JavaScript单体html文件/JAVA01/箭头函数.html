@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//引入箭头函数，主要是为了简化函数代码且不绑定this
+			//使用场景 适用于那些原本需要匿名函数的地方
+			//基本语法：
+			//普通函数
+			// const fn = function(){
+			// 	console.log(11)
+			// }
+			//箭头函数
+			// const fn = () => {
+			// 	console.log(22)
+			// }
+			// fn()
+			
+			//当只有一个形参的时候，可以省略形参小括号
+			// const fn = x => {
+			// 	console.log(33);
+			// }
+			// fu(1)
+			
+			//只有一行代码的时候  箭头号后面的大括号可以不打
+			// const fn = x => console.log(44)
+			// fn()
+			
+			//箭头函数可以直接返回一个对象
+			// const fn = uname => ({name: uname})
+			// fn('哈哈哈')
+			
+			//利用箭头函数求和
+			// const fn = (...arr) => {
+			// 	let sum = 0
+			// 	for (let i = 0; i < arr.length; i++) {
+			// 		sum += arr[i]
+			// 	}
+			// 	return sum
+			// }
+			// console.log(fn(1,2,3,4,5,6,7,8,9))
+			
+			//箭头函数里面没有arguments包含，可以用剩余函数
+			
+			
+			//箭头函数里的this不会自己创建  箭头函数的this会看做上一级的this  只会从自己作用域链往上沿用
+			
+			
+			const obj = {
+				uname:'哈哈哈',
+				sayHi: () => {
+					const count = () => {
+						console.log(this)//obj
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

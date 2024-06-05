@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//arguments 动态参数 只存在于函数里 伪数组
+			function getSum(){
+				let num = 0
+				for(let i = 0 ; i < arguments.length ; i++){
+					num += arguments[i]
+				}
+				return num
+			}
+			
+			//可以随意传参进去
+			console.log(getSum(1,2,3,4,5,6,7,8,9))
+			console.log(getSum(2,6,9,7))
+			
+		</script>
+	</body>
+</html>
