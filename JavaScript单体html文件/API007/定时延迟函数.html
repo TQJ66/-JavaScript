@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			img {
+				left: 0;
+				bottom: 0;
+				position: fixed;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="./images/ad.png"/>
+		<script>
+			// 定时器-延时函数
+			//setTimeout(回调函数，等待的毫秒数)
+			//setTimeout只执行一次
+			// setTimeout(function(){
+			// 	console.log('哈哈')
+			// },5000)
+			//清除延迟函数
+			// let timer = setTimeout(回调函数,等待的毫秒数)
+			// clearTimeout(timer)
+			
+			// Test
+			//5秒自动关闭广告
+			//获取元素
+			const img = document.querySelector('img')
+			//创建定时器，5秒图片自动消失
+			setTimeout(function(){
+				img.style.display = 'none'
+			},2000)
+		</script>
+	</body>
+</html>

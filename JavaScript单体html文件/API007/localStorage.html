@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//本地存储
+			
+			//本地存储分类 localStorage
+			//可以把数据永久储存在本地，除非手动删除，否则一直存在，关闭浏览器任然存在
+			// 储存数据
+			// localStorage.setltem(key,value)
+			// localStorage.setItem(键,值)
+			localStorage.setItem('uname','哈哈哈')
+			localStorage.setItem('age',18)
+			//本地存储只能存储字符串数据类型
+			
+			//获取数据
+			// localStorage.getItem(键)
+			localStorage.getItem('uname')
+			console.log(localStorage.getItem('uname'));
+			
+			//删除本地数据 只删除名字
+			// localStorage.removeItem(键)
+			//localStorage.removeItem('uname')
+			
+			//修改本地数据
+			//修改就是在原本有基础上修改
+			// localStorage.setItem(键,值)
+			localStorage.setItem('uname','hahah')
+			//这一步之后，uname里面的值就会变成hahah
+		</script>
+	</body>
+</html>

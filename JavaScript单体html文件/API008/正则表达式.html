@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			const str = '8177161'
+			// 正则表达式
+			// 用于匹配字符串中字符组合模式
+			//第一步 定义规则
+			//他就是看字符串是否包含两个/中间的字符
+			const reg = /1/
+			//第二步 判断是否匹配
+			//规则.test(被检测的字符串)//返回true或false
+			//规则.exec(被检测的字符串)//返回数组和null
+			console.log(reg.test(str));
+			console.log(reg.exec(str))
+		</script>
+	</body>
+</html>

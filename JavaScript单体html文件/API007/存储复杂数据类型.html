@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//本地存储只能存取字符串，无法存取复杂字符串
+			//所以我们要把复杂数据类型转成JSON字符串，再存储到本地
+			const obj = {
+				name: 'TQJ',
+				age: 18,
+				gender: '男'
+			}
+			//存储复杂数据类型，无法直接使用
+			// localStorage.setItem('obj',obj)这里就是错的
+			
+			//第一步 复杂类型数据存储必须转换为JSON字符串存储
+			localStorage.setItem('obj',JSON.stringify(obj))
+			//第二步  把JSON字符串转换成对象
+			JSON.parse(localStorage.getItem('obj'))
+			//取出
+			console.log(JSON.parse(localStorage.getItem('obj')))
+		</script>
+	</body>
+</html>
+

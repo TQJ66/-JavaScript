@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<a href="https://www.baidu.com/?tn=40020637_6_oem_dg" target="_blank">
+			<span>5</span>秒后跳转
+		</a>
+		<button class="reload">刷新</button>
+		<script>
+			// location对象,他拆分并报存了URL地址的各个部分
+			// location.href = '要跳入的网址'
+			
+			//Test
+			// 倒计时5秒跳转链接
+			const a = document.querySelector('a')
+			//声明倒计时
+			let time = 5
+			let timer = setInterval(function(){
+				//设置间隙函数
+				time--
+				//每次跳一秒，剩余秒数就减1
+				a.innerHTML = `<span>${time}</span>秒后跳转`
+				//每过一秒，都刷新一下文字
+				if( time === 0 ){
+					//如果倒计时秒数到0，那就直接结束函数然后跳转
+					clearInterval(timer)
+					location.href = 'https://www.baidu.com/?tn=40020637_6_oem_dg'
+				}
+			},1000)
+			
+			//reload.reload()//刷新页面
+			const reload = document.querySelector('.reload')
+			reload.addEventListener('click',function(){
+				location.reload()
+			})
+		</script>
+	</body>
+</html>
