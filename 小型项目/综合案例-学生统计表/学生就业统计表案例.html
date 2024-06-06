@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>学生就业统计表</title>
+  <link rel="stylesheet" href="./iconfont/iconfont.css">
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <h1>学生就业统计表</h1>
+  <form class="info" autocomplete="off">
+    <input type="text" class="uname" name="uname" placeholder="姓名" />
+    <input type="text" class="age" name="age" placeholder="年龄" />
+    <input type="text" class="salary" name="salary" placeholder="薪资" />
+    <select name="gender" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    <select name="city" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="回村">回村</option>
+	  <option value="进厂">进厂</option>
+    </select>
+    <button class="add">
+      <i class="iconfont icon-tianjia"></i>添加
+    </button>
+  </form>
+
+  <div class="title">共有数据<span>0</span>条</div>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>薪资</th>
+        <th>毕业去向</th>
+        <th>录入时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1</td>
+        <td>迪丽热巴</td>
+        <td>23</td>
+        <td>女</td>
+        <td>12000</td>
+        <td>北京</td>
+        <td>2099/9/9 08:08:08</td>
+        <td>
+          <a href="javascript:">
+            <i class="iconfont icon-shanchu"></i>
+            删除
+          </a>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+  <script>
+     const initData = [
+		 { 
+			 stuId: 1,
+			 uname: '小明',
+			 age: 18,
+			 gender: '男',
+			 salary: '12000',
+			 city: '北京',
+			 time: '2024/05/20 15:55:05'
+		 }
+	 ]
+	 // localStorage.setIt em('Data',JSON.stringify(initData))//先放一个数据进去试试
+	 
+	 //渲染业务
+	 //1.1先读取本地存储数据,看有没有
+	 //想要取出复杂数据类型需要先转换成字符串
+	 const arr = JSON.parse(localStorage.getItem('Data')) || []
+	 //如果原本本地没有东西，那就返回[]，也就是空的，但如果里面有东西，那就返回数据
+	 //console.log(arr)
+	 //利用map和join来渲染页面
+	 const tbody = document.querySelector('tbody')
+	 function render(){
+		 //用map遍历，返回对应tr数组
+	 	// 因为它是有返回值的,所以先要个有数组来接他
+		const trArr = arr.map(function(ele,index){
+			//只是需要渲染，所以可以直接return
+			return `
+			<tr>
+			  <td>${ele.stuId}</td>
+			  <td>${ele.uname}</td>
+			  <td>${ele.age}</td>
+			  <td>${ele.gender}</td>
+			  <td>${ele.salary}</td>
+			  <td>${ele.city}</td>
+			  <td>${ele.time}</td>                                                                
+			  <td>
+			    <a href="javascript:" data-id = '${index}'>
+			      <i class="iconfont icon-shanchu"></i>
+			      删除
+			    </a>
+			  </td>
+			</tr>
+			`
+		})
+		console.log(trArr)
+		
+		//把数组转换为字符串 join，然后把生成的字符串追加给tbody
+		tbody.innerHTML = trArr.join('')
+		
+		//显示当前数据条数
+		const title = document.querySelector('.title span')
+		title.innerHTML = arr.length
+	 }
+	 //调用函数，渲染
+	 render()
+	 
+	 //增加业务
+	 const info = document.querySelector('.info')
+	 const items = document.querySelectorAll('[name]')
+	 const uname = document.querySelector('.uname')
+	 const age = document.querySelector('.age')
+	 const salary = document.querySelector('.salary')
+	 const gender = document.querySelector('.gender')
+	 const city = document.querySelector('.city')
+	 //创建提交事件
+	 info.addEventListener('submit',function(e){
+		 e.preventDefault()
+		 //1.首先判断是否都输入完整
+		for (let i = 0; i < items.length; i++) {
+		 	if( items[i].value === ''){
+				return alert('请填写完整')
+			}
+		 }
+		
+		//现在输入数据进去，就得创建一个对象来储存数据
+		const newItem = {
+				   //属性名：表单名.value
+				   //三元运算符号
+				   stuId: arr.length ? arr[arr.length - 1].stuId +1 : 1,
+				   // 数组最后一条数据的stuId+1
+				   uname: uname.value,
+				   age: age.value,
+				   gender: gender.value,
+				   salary: salary.value,
+				   city: city.value,
+				   time: new Date().toLocaleString()
+		}
+		//添加新数组
+		arr.push(newItem)
+		//把数据存起来,上一步只是为了把数据放到arr里面好渲染到表单，并不能一直保存
+		localStorage.setItem('Data', JSON.stringify(arr))
+		//清空数组
+		this.reset()
+		//调用函数，渲染
+		render()
+		
+	 })
+	 
+	 
+	 //利用tbody事件委托来删除
+	 //创建点击事件，让用户点击tbody的a链接就会执行
+	 tbody.addEventListener('click',function(e){
+		 if(e.target.tagName === 'A'){
+			 //获得当前点击A的自定义属性索引
+			 if(confirm('老弟你想好了？要删？')){
+				 arr.splice(e.target.dataset.id,1)
+				 // e.target.dataset.id可以得到当前的索引号
+				 // 然后用splice删除
+				 
+				 //刷新
+				 render()
+				 //保存数据
+				 localStorage.setItem('Data', JSON.stringify(arr))
+			 }else{
+				 alert('那你点个蛋')
+			 }
+		 }
+	 })
+  </script>
+</body>
+
+</html>
