@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>学生信息管理</title>
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+  <h1>新增学员</h1>
+  <form class="info" autocomplete="off">
+    姓名：<input type="text" class="uname" name="uname" />
+    年龄：<input type="text" class="age" name="age" />
+    性别:
+    <select name="gender" class="gender">
+      <option value="男">男</option>
+      <option value="女">女</option>
+    </select>
+    薪资：<input type="text" class="salary" name="salary" />
+    就业城市：<select name="city" class="city">
+      <option value="北京">北京</option>
+      <option value="上海">上海</option>
+      <option value="广州">广州</option>
+      <option value="深圳">深圳</option>
+      <option value="曹县">曹县</option>
+    </select>
+    <button class="add">录入</button>
+  </form>
+
+  <h1>就业榜</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>薪资</th>
+        <th>就业城市</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 
+        <tr>
+          <td>1001</td>
+          <td>欧阳霸天</td>
+          <td>19</td>
+          <td>男</td>
+          <td>15000</td>
+          <td>上海</td>
+          <td>
+            <a href="javascript:">删除</a>
+          </td>
+        </tr> 
+        -->
+    </tbody>
+  </table>
+  <script>
+   //这个案例就是要把输入在框框里的值点击录入传到表单数组里
+   //所以首先第一步就得把表单元素都给获取，然后再创建一个表单的提交事件
+   //把输入在表单里的数据全都传到一个表单数组里
+   
+   //获取元素
+   const uname = document.querySelector('.uname')
+   const age = document.querySelector('.age')
+   const gender = document.querySelector('.gender')
+   const salary = document.querySelector('.salary')
+   const city = document.querySelector('.city')
+   //因为下面渲染的时候需要把数据添加到<tbody>里，所以要获取元素
+   const tbody = document.querySelector('tbody')
+   // 获取所有带name属性的元素 用于判断非空
+   const items = document.querySelectorAll('[name]')
+   
+   //声明一个空的数组，他用于存放每次提交的数据
+   const arr = []
+   
+   //获取到元素之后，下一步就是要把他用表单form传过去
+   //获取元素
+   const info = document.querySelector('.info')
+   //创建提交事件
+   info.addEventListener('submit',function(e){
+	   // 现在还不能确定是否把所有值提交,所以先阻止默认行为
+	   e.preventDefault()
+	   
+	   //非空判断，如果检查到当前信息没有填写完整，就不让录入
+	   for (let i = 0; i < items.length; i++) {
+		   if( items[i].value === ''){
+			   //只要里面有一个值是空的，那就直接return结束函数
+			   return alert('内容不能为空')
+		   }
+	   }
+	   
+	   
+	   //现在输入数据进去，就得创建一个对象来储存数据
+	   const obj = {
+		   //属性名：表单名.value
+		   stuId: arr.length +1,
+		   // 学号从1开始,数组索引从0开始
+		   uname: uname.value,
+		   age: age.value,
+		   gender: gender.value,
+		   salary: salary.value,
+		   city: city.value
+	   }
+	   //将obj里的数据添加到arr数组里面
+	   arr.push(obj)
+	   console.log(arr);
+	   
+	   //现在表单里的数据都已经添加进数组了，所以我们现在就需要把表单里面的数据都清空，给下次输入
+	   this.reset()
+	   //这里因为提交事件调用的是info表单，所以this就是指向info，reset（）是重置按钮的意思
+	   
+	   //调用函数
+	   render()
+   })
+   
+   
+   
+   //因为删除和添加数据都要渲染，所以搞一个函数可以提高效率
+   function render(){
+	   //循环开始之前清空tbody
+	   tbody.innerHTML = ''
+	   //创建一个for循环遍历数组
+	   for (let i = 0; i < arr.length; i++) {
+		   //<tbody>里面还需要很多行，所以循环一次就创建一个tr标签
+		   //放在这里创建tr的原因就是因为他不可能只需要创建一次tr
+		   //只要调用函数了，就说明肯定有新的tr要出现
+	   	const tr = document.createElement('tr')
+		//现在就是替换每个单元格的内容
+		tr.innerHTML = `
+				<tr>
+				  <td>${arr[i].stuId}</td>
+				  <td>${arr[i].uname}</td>
+				  <td>${arr[i].age}</td>
+				  <td>${arr[i].gender}</td>
+				  <td>${arr[i].salary}</td>
+				  <td>${arr[i].city}</td>
+				  <td>
+				    <a href="javascript:" data-id = ${i}>删除</a>
+				  </td>
+				</tr>
+		`
+		//创建之后如果要在界面看到，还需要追加节点
+		//父元素.appendChild（要插入的元素）
+		//父元素.inertBefore（要插入的元素,插入元素的位置）
+		tbody.appendChild(tr)
+	   }
+	   
+   }
+   
+   
+   //删除
+   //利用事件委托 tbody来删除
+   tbody.addEventListener('click',function(e){
+	   //如果点击的元素是a标签也就是删除的标签，那就执行
+	   if(e.target.tagName === 'A'){
+		   //删除那条标签
+		   console.log(e.target.dataset.id);
+		   arr.splice(e.target.dataset.id,1)//
+		   //删除之后重新渲染
+		   render()
+	   }
+   })
+   
+   
+   
+
+  </script>
+
+</body>
+
+</html>
