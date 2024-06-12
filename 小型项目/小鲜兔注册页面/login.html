@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>小兔鲜儿 - 新鲜 惠民 快捷!</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_2143783_iq6z4ey5vu.css">
+</head>
+
+<body>
+  <!-- 登录头部 -->
+  <div class="xtx-login-header">
+    <h1 class="logo"></h1>
+    <a class="home" href="./index.html">进入网站首页</a>
+  </div>
+  <!-- 登录内容 -->
+  <div class="xtx-login-main">
+    <div class="wrapper">
+      <form action="">
+        <div class="box">
+          <div class="tab-nav">
+            <a href="javascript:;" class="active" data-id="0">账户登录</a>
+            <a href="javascript:;" data-id="1">二维码登录</a>
+          </div>
+          <div class="tab-pane">
+            <div class="link">
+              <a href="javascript:;">手机验证码登录</a>
+            </div>
+            <div class="input">
+              <span class="iconfont icon-zhanghao"></span>
+              <input required type="text" placeholder="请输入用户名称/手机号码" name="username">
+            </div>
+            <div class="input">
+              <span class="iconfont icon-suo"></span>
+              <input required type="password" placeholder="请输入密码" name="password">
+            </div>
+            <div class="agree">
+              <label for="my-checkbox">
+                <input type="checkbox" value="1" id="my-checkbox" class="remember" name="agree">
+                <span class="iconfont icon-xuanze"></span>
+              </label>
+              我已同意 <a href="javascript:;">《服务条款》</a href="javascript:;"> 和 <a>《服务条款》</a>
+            </div>
+            <div class="button clearfix">
+              <button type="submit" class="dl">登 录</button>
+              <!-- <a class="dl" href="./center.html">登 录</a> -->
+              <a class="fl" href="./forget.html">忘记密码？</a>
+              <a class="fr" href="./register.html">免费注册</a>
+            </div>
+          </div>
+          <div class="tab-pane" style="display: none;">
+            <img class="code" src="./images/code.png" alt="">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- 登录底部 -->
+  <div class="xtx-login-footer">
+    <!-- 版权信息 -->
+    <div class="copyright">
+      <p>
+        <a href="javascript:;">关于我们</a>
+        <a href="javascript:;">帮助中心</a>
+        <a href="javascript:;">售后服务</a>
+        <a href="javascript:;">配送与验收</a>
+        <a href="javascript:;">商务合作</a>
+        <a href="javascript:;">搜索推荐</a>
+        <a href="javascript:;">友情链接</a>
+      </p>
+      <p>CopyRight &copy; 小兔鲜儿</p>
+    </div>
+  </div>
+  <script>
+	//tab切换 事件委托
+	//获取元素
+	const tab_nav = document.querySelector('.tab-nav')
+	const pane = document.querySelectorAll('.tab-pane')
+	//创建点击事件
+	tab_nav.addEventListener('click',function(e){
+		//判断点击的是不是a标签
+		if( e.target.tagName === 'A'){
+			//先把以前有的删除效果
+			tab_nav.querySelector('.active').classList.remove('active')
+			//给当前选中的添加效果
+			e.target.classList.add('active')
+			
+			//取消图片显示
+			for( let i = 0; i < pane.length ; i++){
+				pane[i].style.display = 'none'
+			}
+			//获取到a链接的自定义属性下标
+			pane[e.target.dataset.id].style.display = 'block'
+		}
+	})
+	
+	//提交模块
+	//获取元素
+	const form = document.querySelector('form')
+	const agree = document.querySelector('[name=agree]')
+	const username = document.querySelector('[name=username]')
+	//创建提交事件
+	form.addEventListener('submit',function(e){
+		//阻止提交
+		e.preventDefault()
+		//如果当前按钮没选中
+		if(!agree.checked){
+			//agree.checked可以判断当前复选框是否被选中
+			alert('请勾选我同意按钮')
+		}else{
+			//记录用户数据
+			localStorage.setItem('xtx-uname',username.value)
+			//点击登录之后进入首页
+			location.href = './index.html'
+		}
+		
+	})
+
+  </script>
+</body>
+
+</html>
